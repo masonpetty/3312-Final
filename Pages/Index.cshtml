@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Events";
+}
+
+<h1>Events</h1>
+
+@foreach (var @event in Model.Events)
+{
+    <div>
+        <h4>@event.Name</h4>
+        <p>@event.Description</p>
+        <p>Start Time: @event.StartTime.ToString("yyyy-MM-dd HH:mm")</p>
+        <p>End Time: @event.EndTime.ToString("yyyy-MM-dd HH:mm")</p>
+    </div>
+}
