@@ -6,12 +6,12 @@
 
 <h1>Events</h1>
 
-@foreach (var event in Model.Events)
+@foreach (var e in Model.Events)
 {
     <div>
-        <h4>@event.Name</h4>
-        <p>@event.Description</p>
-        <p>Start Time: @event.StartTime.ToString("yyyy-MM-dd HH:mm")</p>
-        <p>End Time: @event.EndTime.ToString("yyyy-MM-dd HH:mm")</p>
+        <h4>@e.Name</h4>
+        <p>@e.Description</p>
+        <p>Start Time: @e.StartTime.ToString("yyyy-MM-dd HH:mm")</p>
+        <p>End Time: @e.EndTime.ToString("yyyy-MM-dd HH:mm")</p>
     </div>
 }

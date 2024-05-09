@@ -1,7 +1,8 @@
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using EventManagementPlatform.Models;
 
 namespace EventManagementPlatform.Models
 {
@@ -21,22 +22,18 @@ namespace EventManagementPlatform.Models
                     return;   // DB has been seeded
                 }
 
-                context.Events.AddRange(
-                    new Event
+                // Add more events to ensure at least 25 records for paging
+                for (int i = 1; i <= 25; i++)
+                {
+                    context.Events.Add(new Event
                     {
-                        Name = "Conference",
-                        Description = "Annual Conference",
-                        StartTime = DateTime.Parse("2024-06-01"),
-                        EndTime = DateTime.Parse("2024-06-03"),
-                    },
-                    new Event
-                    {
-                        Name = "Workshop",
-                        Description = "Hands-on Workshop",
-                        StartTime = DateTime.Parse("2024-06-05"),
-                        EndTime = DateTime.Parse("2024-06-07"),
-                    }
-                );
+                        Name = $"Event {i}",
+                        Description = $"Description for Event {i}",
+                        StartTime = DateTime.Today.AddDays(i),
+                        EndTime = DateTime.Today.AddDays(i + 2),
+                    });
+                }
+
                 context.SaveChanges();
             }
         }

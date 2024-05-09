@@ -1,20 +1,23 @@
-using EventManagementPlatform.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using EventManagementPlatform.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
-
+var connectionString = builder.Configuration.GetConnectionString("EventManagementContext");
 builder.Services.AddDbContext<EventManagementContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("EventManagementContext")));
+    options.UseSqlite(connectionString));
+
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
+// Seed the database with records
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -25,7 +28,6 @@ using (var scope = app.Services.CreateScope())
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-   
     app.UseHsts();
 }
 
@@ -37,5 +39,14 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+// Add error handling middleware
+app.UseExceptionHandler("/Error");
+
+// Add developer exception page middleware (for development)
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
 
 app.Run();
