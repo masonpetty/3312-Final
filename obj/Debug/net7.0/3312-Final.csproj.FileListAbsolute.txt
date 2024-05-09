@@ -1,0 +1,8 @@
+C:\Users\mp1053561\Desktop\Final Adv\3312-Final\obj\Debug\net7.0\3312-Final.csproj.AssemblyReference.cache
+C:\Users\mp1053561\Desktop\Final Adv\3312-Final\obj\Debug\net7.0\3312-Final.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mp1053561\Desktop\Final Adv\3312-Final\obj\Debug\net7.0\3312-Final.AssemblyInfoInputs.cache
+C:\Users\mp1053561\Desktop\Final Adv\3312-Final\obj\Debug\net7.0\3312-Final.AssemblyInfo.cs
+C:\Users\mp1053561\Desktop\Final Adv\3312-Final\obj\Debug\net7.0\3312-Final.csproj.CoreCompileInputs.cache
+C:\Users\mp1053561\Desktop\Final Adv\3312-Final\obj\Debug\net7.0\3312-Final.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mp1053561\Desktop\Final Adv\3312-Final\obj\Debug\net7.0\3312-Final.RazorAssemblyInfo.cache
+C:\Users\mp1053561\Desktop\Final Adv\3312-Final\obj\Debug\net7.0\3312-Final.RazorAssemblyInfo.cs

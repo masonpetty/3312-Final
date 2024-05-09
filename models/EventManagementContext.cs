@@ -9,7 +9,7 @@ namespace EventManagementPlatform.Models
         }
 
         public DbSet<Event> Events { get; set; }
-        public DbSet<Organizer> Organizers { get; set; }
+        public DbSet<EventManager> Eventmanagers  { get; set; }
         public DbSet<Attendee> Attendees { get; set; }
     }
 }
