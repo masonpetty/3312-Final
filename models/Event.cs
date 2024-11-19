@@ -11,8 +11,7 @@ namespace EventManagementPlatform.Models
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
        
-
         // Navigation properties
-        public ICollection<Attendee> Attendees { get; set; }
+        public ICollection<EventAttendee> EventAttendees { get; set; }
     }
 }
