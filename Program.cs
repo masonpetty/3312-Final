@@ -25,7 +25,11 @@ using (var scope = app.Services.CreateScope())
 }
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
@@ -39,14 +43,5 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
-
-// Add error handling middleware
-app.UseExceptionHandler("/Error");
-
-// Add developer exception page middleware (for development)
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
 
 app.Run();
