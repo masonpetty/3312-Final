@@ -7,6 +7,7 @@ namespace EventManagementPlatform.Models
         public string Email { get; set; }
        
         // Navigation properties
-        public ICollection<Event> RegisteredEvents { get; set; }
+        public ICollection<EventAttendee> EventAttendees { get; set; }
     }
 }
+
