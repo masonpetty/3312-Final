@@ -1,12 +1,13 @@
+using System.Collections.Generic;
+
 namespace EventManagementPlatform.Models
 {
     public class EventManager
     {
         public int EventManagerId { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
 
-        // Navigation properties
-        public ICollection<Event> Events { get; set; }
+        public ICollection<Event> Events { get; set; } = new List<Event>();
     }
 }

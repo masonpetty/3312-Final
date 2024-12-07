@@ -6,12 +6,11 @@ namespace EventManagementPlatform.Models
     public class Event
     {
         public int EventId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-       
-        // Navigation properties
-        public ICollection<EventAttendee> EventAttendees { get; set; }
+
+        public ICollection<EventAttendee> EventAttendees { get; set; } = new List<EventAttendee>();
     }
 }

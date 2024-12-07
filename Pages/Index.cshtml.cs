@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using EventManagementPlatform.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace _3312_Final.Pages
+namespace EventManagementPlatform.Pages
 {
     public class IndexModel : PageModel
     {
@@ -14,11 +15,14 @@ namespace _3312_Final.Pages
             _context = context;
         }
 
-        public IList<Event> Events { get; set; }
+        public IList<Event> Events { get; set; } = new List<Event>();
 
-        public void OnGet()
+        public async Task OnGetAsync()
         {
-            Events = _context.Events.ToList();
+            Events = await _context.Events
+                .Include(e => e.EventAttendees)
+                .ThenInclude(ea => ea.Attendee)
+                .ToListAsync();
         }
     }
 }

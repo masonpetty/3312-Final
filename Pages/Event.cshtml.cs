@@ -15,7 +15,8 @@ namespace EventManagementPlatform.Pages
             _context = context;
         }
 
-        public IList<Event> Events { get; set; }
+        public IList<Event> Events { get; set; } = new List<Event>();
+
 
         public async Task OnGetAsync()
         {
